@@ -15,7 +15,7 @@ def index(request):
     comment_box = render_component(
         # The path to the component is resolved via Django's
         # static-file finders
-        'example_app/components/CommentBox.jsx',
+        'example_app/CommentBox.server.js',
         # We can pass data along to the component which will be
         # accessible from the component via its `this.props` property
         props={
