@@ -2,8 +2,8 @@
 <html>
 <head>
 	<title>Django + React + Webpack demo</title>
-	<link rel="stylesheet" href="{% static 'example_app/vendor/bootstrap/css/bootstrap.css' %}">
-	<link rel="stylesheet" href="{% static 'example_app/main.css' %}">
+	<link rel="stylesheet" href="{% static 'vendor/bootstrap/css/bootstrap.css' %}">
+	<link rel="stylesheet" href="{% static 'main.css' %}">
 </head>
 <body>
 	<div class="container">
@@ -25,7 +25,7 @@
 	{% if not no_js %}
 		<!-- Render a <script> element pointing to the CommentBox's bundle -->
 		{{ comment_box_bundle.render }}
-        <script src="/static/example_app/main.js"></script>
+        <script src="{% static 'js/main.js' %}"></script>
 		<script>
 			(function() {
 				// In the webpack.config.js file, we specify a `library` property

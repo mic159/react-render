@@ -5,11 +5,11 @@ module.exports = {
   context: __dirname,
   // The bundle's entry file
   entry: {
-    'CommentBox': ['./components/CommentBox.jsx']
+    'main': ['./jsx/components/CommentBox.jsx']
   },
   output: {
     // The directory that generated bundle will be placed in
-    path: __dirname,
+    path: path.join(__dirname, 'js'),
     // The file name of the generated bundle
     filename: '[name].server.js',
     // A global variable that the bundle will be exposed as

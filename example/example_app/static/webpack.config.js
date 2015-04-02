@@ -5,11 +5,11 @@ module.exports = {
 	context: __dirname,
 	// The bundle's entry file
 	entry: {
-    'main': './main.jsx'
+    'main': './jsx/main.jsx'
   },
 	output: {
 		// The directory that generated bundle will be placed in
-        path: __dirname,
+        path: path.join(__dirname, 'js'),
         // The file name of the generated bundle
 		filename: '[name].js',
 		// A global variable that the bundle will be exposed as
