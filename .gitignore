@@ -54,6 +54,6 @@ docs/_build/
 target/
 
 node_modules
-example/static
+example/example_app/static/js
 .idea
 
