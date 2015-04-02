@@ -1,13 +1,13 @@
-import React from 'react';
-import Comment from './Comment.jsx';
+var React = require('react');
+var Comment = require('./Comment.jsx');
 
-export default React.createClass({
-	render() {
+module.exports = React.createClass({
+	render: function() {
 		if (!this.props.comments.length) {
 			return null;
 		}
-		var commentNodes = this.props.comments.map((comment, index) => {
-			return <Comment author={comment.author} text={comment.text} key={index} />;
+		var commentNodes = this.props.comments.map(function(comment, index) {
+			return (<Comment author={comment.author} text={comment.text} key={index} />);
 		});
 		return (
 			<div>

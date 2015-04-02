@@ -3,7 +3,6 @@ from django.core.urlresolvers import reverse
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django_react.render import render_component
-from django_webpack.compiler import webpack
 
 comments = []
 
@@ -35,11 +34,6 @@ def index(request):
         'comment_box': comment_box,
         'no_js': no_js,
     }
-
-    if not no_js:
-        # Generate a bundle which shares the same codebase as the server-side
-        # rendering, but will operate on the client-side
-        context['comment_box_bundle'] = webpack('example_app/webpack.config.js')
 
     return render(request, 'example_app/index.html', context)
 

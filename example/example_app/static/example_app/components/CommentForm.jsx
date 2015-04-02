@@ -1,7 +1,7 @@
-import React from 'react';
+var React = require('react');
 
-export default React.createClass({
-	handleSubmit(e) {
+module.exports = React.createClass({
+	handleSubmit: function(e) {
 		e.preventDefault();
 		var author = this.refs.author.getDOMNode().value.trim();
 		var text = this.refs.text.getDOMNode().value.trim();
@@ -12,7 +12,7 @@ export default React.createClass({
 		this.refs.author.getDOMNode().value = '';
 		this.refs.text.getDOMNode().value = '';
 	},
-	render() {
+	render: function() {
 		return (
 			<form method="POST" action={this.props.url} onSubmit={this.handleSubmit}>
 				<h2>Submit a comment</h2>

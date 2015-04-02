@@ -1,8 +1,8 @@
-import React from 'react';
-import marked from 'marked';
+var React = require('react');
+var marked = require('marked');
 
-export default React.createClass({
-	render() {
+module.exports = React.createClass({
+	render: function() {
 		var rawMarkup = marked(this.props.text);
 		return (
 			<div>

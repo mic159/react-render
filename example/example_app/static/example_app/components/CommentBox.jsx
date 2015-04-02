@@ -1,53 +1,53 @@
-import React from 'react';
-import $ from 'jquery';
-import CommentList from './CommentList.jsx';
-import CommentForm from './CommentForm.jsx';
+var React = require('react');
+var $ = require('jquery');
+var CommentList = require('./CommentList.jsx');
+var CommentForm = require('./CommentForm.jsx');
 
-export default React.createClass({
-	getInitialState() {
+module.exports = React.createClass({
+	getInitialState: function() {
 		return {comments: this.props.comments};
 	},
-	handleCommentSubmit(comment) {
+	handleCommentSubmit: function(comment) {
 		var comments = this.state.comments;
 		comments.push(comment);
-		this.setState({comments: comments}, () => {
+		this.setState({comments: comments}, function() {
 			this.postComment(comment);
 		});
 	},
-	postComment(comment) {
+	postComment: function(comment) {
 		$.ajax({
 			url: this.props.url,
 			type: 'POST',
 			dataType: 'json',
 			data: comment,
-			success: (comments) => {
+			success: function(comments) {
 				this.setState({comments: comments});
 			},
-			error: (xhr, status, err) => {
+			error: function(xhr, status, err) {
 				console.error(this.props.url, status, err.toString());
 			}
 		});
 	},
-	getComments() {
+	getComments: function() {
 		$.ajax({
 			url: this.props.url,
 			dataType: 'json',
-			success: (comments) => {
+			success: function(comments) {
 				this.setState({comments: comments});
 			},
-			error: (xhr, status, err) => {
+			error: function(xhr, status, err) {
 				console.error(this.props.url, status, err.toString());
 			},
 			complete: this.pollForNewComments
 		});
 	},
-	pollForNewComments() {
+	pollForNewComments: function() {
 		setTimeout(this.getComments, this.props.pollInterval);
 	},
-	componentDidMount() {
+	componentDidMount: function() {
 		this.pollForNewComments();
 	},
-	render() {
+	render: function() {
 		return (
 			<div>
 				<CommentList comments={this.state.comments} />

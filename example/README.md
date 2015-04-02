@@ -18,11 +18,11 @@ Install
 mkvirtualenv django-react-demo
 pip install -r requirements.txt
 
-# Install the project's package dependencies
-./manage.py install_package_dependencies
+# Install the nodejs service
+npm install
 
 # Start the node server that we use to render and bundle components
-./manage.py start_node_server
+npm run react-service
 
 # In another terminal, start the django devserver
 ./manage.py runserver

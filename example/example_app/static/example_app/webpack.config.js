@@ -4,12 +4,14 @@ module.exports = {
     // The root directory of the bundle
 	context: __dirname,
 	// The bundle's entry file
-	entry: './main.jsx',
+	entry: {
+    'main': './main.jsx'
+  },
 	output: {
 		// The directory that generated bundle will be placed in
-        path: path.join('[bundle_dir]', 'example_app'),
+        path: __dirname,
         // The file name of the generated bundle
-		filename: 'bundle-[hash].js',
+		filename: '[name].js',
 		// A global variable that the bundle will be exposed as
 		library: 'main'
     },

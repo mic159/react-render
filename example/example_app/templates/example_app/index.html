@@ -25,17 +25,18 @@
 	{% if not no_js %}
 		<!-- Render a <script> element pointing to the CommentBox's bundle -->
 		{{ comment_box_bundle.render }}
+        <script src="/static/example_app/main.js"></script>
 		<script>
 			(function() {
 				// In the webpack.config.js file, we specify a `library` property
 				// which allows us to define a global variable which the bundle's
 				// is exposed at
-				var comment_box_bundle = {{ comment_box_bundle.get_library }};
+				// var comment_box_bundle = {{ comment_box_bundle.get_library }};
 				// We re-use the props which were serialised for the rendering
 				var comment_box_props = {{ comment_box.render_props }};
 				// The props are passed into the bundle, which immediately mounts
 				// the component over the pre-rendered markup and adds interactivity
-				comment_box_bundle(comment_box_props);
+				main(comment_box_props);
 			})();
 		</script>
 	{% endif %}

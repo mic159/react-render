@@ -29,52 +29,9 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 
-# DJANGO NODE
-# ===========
-
-INSTALLED_APPS += (
-    'django_node',
-)
-
-DJANGO_NODE = {
-    'SERVICES': (),
-    'PACKAGE_DEPENDENCIES': (),
-}
-
-
-# DJANGO WEBPACK
-# ==============
-
-INSTALLED_APPS += (
-    'django_webpack',
-)
-
-DJANGO_NODE['SERVICES'] += (
-    'django_webpack.services',
-)
-
-STATICFILES_FINDERS += (
-    'django_webpack.staticfiles.WebpackFinder',
-)
-
-# DJANGO REACT
-# ============
-
-INSTALLED_APPS += (
-    'django_react',
-)
-
-DJANGO_NODE['SERVICES'] += (
-    'django_react.services',
-)
-
-
 # EXAMPLE APP
 # ===========
 
 INSTALLED_APPS += (
     'example_app',
 )
-
-# Instruct django-node to install the example app's package.json dependencies
-DJANGO_NODE['PACKAGE_DEPENDENCIES'] += (BASE_DIR,)
