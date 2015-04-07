@@ -22,10 +22,10 @@ module.exports = React.createClass({
 			data: comment,
 			success: function(comments) {
 				this.setState({comments: comments});
-			},
+			}.bind(this),
 			error: function(xhr, status, err) {
 				console.error(this.props.url, status, err.toString());
-			}
+			}.bind(this)
 		});
 	},
 	getComments: function() {
@@ -34,10 +34,10 @@ module.exports = React.createClass({
 			dataType: 'json',
 			success: function(comments) {
 				this.setState({comments: comments});
-			},
+			}.bind(this),
 			error: function(xhr, status, err) {
 				console.error(this.props.url, status, err.toString());
-			},
+			}.bind(this),
 			complete: this.pollForNewComments
 		});
 	},
