@@ -1,33 +1,52 @@
 var path = require('path');
 
-module.exports = {
-  // The root directory of the bundle
-  context: __dirname,
-  // The bundle's entry file
-  entry: {
-    'main': './jsx/main.jsx'
-  },
-  output: {
-    // The directory that generated bundle will be placed in
-    path: path.join(__dirname, 'js'),
-    // The file name of the generated bundle
-    filename: '[name].js',
-    // A global variable that the bundle will be exposed as
-    library: 'main'
-  },
-  module: {
-    // Inform webpack to not parse the jQuery library, this is an
-    // an optimisation which helps to reduce the build time associated
-    // with large libraries
-    noParse: [
-      /jquery/
-    ],
-    // Inform webpack to use the babel loader when reading files
-    // ending in '.jsx'
-    loaders: [
-      {test: /\.jsx$/, exclude: /node_modules/, loader: 'babel-loader'}
-    ]
-  },
-  // A development tool that provides source maps
-  devtool: 'eval'
+var context = __dirname;
+// The directory that generated bundles will be placed in
+var outputDir = path.join(__dirname, 'js');
+var moduleOpts = {
+  // Inform webpack to not parse the jQuery library, this is an
+  // an optimisation which helps to reduce the build time associated
+  // with large libraries
+  noParse: [
+    /jquery/
+  ],
+  // Inform webpack to use the babel loader when reading files
+  // ending in '.jsx'
+  loaders: [
+    {test: /\.jsx$/, exclude: /node_modules/, loader: 'babel-loader'}
+  ]
 };
+
+module.exports = [
+  // -----------------
+  //   Client side
+  // -----------------
+  {
+    context: context,
+    entry: {
+      'main': ['./jsx/main.jsx']
+    },
+    output: {
+      path: outputDir,
+      filename: '[name].js',
+      // A global variable that the bundle will be exposed as
+      library: 'main'
+    },
+    module: moduleOpts,
+    devtool: 'eval'
+  },
+  // -----------------
+  //    Server side
+  // -----------------
+  {
+    context: context,
+    entry: {
+      'main': ['./jsx/components/CommentBox.jsx']
+    },
+    output: {
+      path: outputDir,
+      filename: '[name].server.js',
+      libraryTarget: 'commonjs2'
+    },
+    module: moduleOpts
+  }];

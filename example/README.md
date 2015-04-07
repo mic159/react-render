@@ -21,6 +21,9 @@ pip install -r requirements.txt
 # Install the nodejs service
 npm install
 
+# Compile Javascript bundles
+npm run build
+
 # Start the node server that we use to render and bundle components
 npm run react-service
 
@@ -30,11 +33,6 @@ npm run react-service
 
 And visit http://127.0.0.1:8000
 
-**Note** that the first request may take a while to render, this is down to the 
-node server having to read the app's codebase into memory and process dependencies.
-The initial overhead will only occurr on the first request, successive requests will 
-be rendered immediately.
-
-If you make changes to the app's JS codebase, the node server will detect the changes
-and perform incremental rebuilds so that when the next request comes in, everything
-is ready and immediately responsive.
+**Note** If you make changes to the app's JS codebase, you will need to re-run `npm run build` or instead use
+`npm run watch` that will automatically rebuild when there are changes. The react-service will automatically reload
+the bundles after webpack has changed them.

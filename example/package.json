@@ -2,7 +2,8 @@
   "private": true,
   "scripts": {
     "react-service": "react-service --debug --watch",
-    "build": "webpack --config example_app/static/webpack.config.js && webpack --config example_app/static/webpack.config.server.js"
+    "build": "webpack --config example_app/static/webpack.config.js",
+    "watch": "webpack --config example_app/static/webpack.config.js --watch"
   },
   "dependencies": {
     "babel-core": "^4.6.5",
