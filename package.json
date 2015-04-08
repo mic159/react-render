@@ -14,7 +14,7 @@
     "resolve": "^1.1.5",
     "yargs": "^3.6.0"
   },
-  "author": "mic159",
+  "author": "Michael Cooper",
   "repository": {
     "type": "git",
     "url": "https://github.com/mic159/react-render.git"

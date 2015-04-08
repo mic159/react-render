@@ -1,0 +1,21 @@
+# Byte-compiled / optimized / DLL files
+*.py[cod]
+
+# Distribution / packaging
+/dist/
+/*.egg-info/
+*.egg
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+node_modules
+/example
+/react_render
+/tests
+/.idea
+
+/*.py
+/setup.cfg
+
