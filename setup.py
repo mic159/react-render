@@ -17,6 +17,7 @@ setup(
     url='https://github.com/mic159/react-render',
     download_url='https://github.com/mic159/react-render/tarball/{}'.format(VERSION),
     keywords=['react', 'reactjs', 'django', 'isomorphic', 'templates'],
+    license='MIT',
     classifiers=[
         'Framework :: Django',
         'Intended Audience :: Developers',
