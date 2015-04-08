@@ -15,5 +15,13 @@ setup(
     author='Michael Cooper',
     author_email='mic159@gmail.com',
     url='https://github.com/mic159/react-render',
+    download_url='https://github.com/mic159/react-render/tarball/{}'.format(VERSION),
     keywords=['react', 'reactjs', 'django', 'isomorphic', 'templates'],
+    classifiers=[
+        'Framework :: Django',
+        'Intended Audience :: Developers',
+        'License :: OSI Approved :: MIT License',
+        'Operating System :: OS Independent',
+        'Topic :: Software Development',
+    ]
 )
