@@ -19,5 +19,7 @@
     "type": "git",
     "url": "https://github.com/mic159/react-render.git"
   },
+  "keywords": ["react", "reactjs", "isomorphic", "templates"],
+  "homepage": "https://github.com/mic159/react-render",
   "license": "MIT"
 }
