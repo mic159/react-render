@@ -15,4 +15,5 @@ setup(
     author='Michael Cooper',
     author_email='mic159@gmail.com',
     url='https://github.com/mic159/react-render',
+    keywords=['react', 'reactjs', 'django', 'isomorphic', 'templates'],
 )
