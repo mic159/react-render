@@ -12,6 +12,6 @@
     "marked": "^0.3.3",
     "react": "^0.13.0",
     "webpack": "^1.6.0",
-    "react-render-service": "^0.10.2"
+    "react-render-service": "^0.10.3"
   }
 }
