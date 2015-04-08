@@ -15,7 +15,7 @@ Install
 ```bash
 # In the /example directory
 
-mkvirtualenv django-react-demo
+mkvirtualenv react-render-demo
 pip install -r requirements.txt
 
 # Install the nodejs service

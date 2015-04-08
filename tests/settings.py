@@ -11,6 +11,6 @@ INSTALLED_APPS = (
 
 DJANGO_NODE = {
     'SERVICES': (
-        'django_react.services',
+        'react_render.services',
     )
 }

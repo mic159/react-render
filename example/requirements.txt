@@ -1,2 +1,1 @@
-django
--e git+https://github.com/mic159/django-react.git#egg=django-react
+react-render-client==0.10.2

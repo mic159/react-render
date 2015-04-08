@@ -1,7 +1,5 @@
-Django React
+React Render
 ============
-
-[![Build Status](https://travis-ci.org/markfinger/django-react.svg?branch=master)](https://travis-ci.org/markfinger/django-react)
 
 Render React components on the server side in Django, also called "isomorphic React".
 You would do this for faster page loads, to make it friendlier to web crawlers and for SEO.
@@ -10,7 +8,7 @@ Example
 -------
 
 ```python
-from django_react.render import render_component
+from react_render.render import render_component
 
 props = {
     'foo': 'bar',
@@ -40,12 +38,9 @@ Documentation
 Installation
 ------------
 
-**Note**: django-react is currently under active development and the latest
-stable version from PyPI completely different to this version.
-
 ```bash
-npm install git+https://github.com/mic159/django-react.git
-pip install git+https://github.com/mic159/django-react.git#egg=django-react
+npm install react-render-service --save
+pip install react-render-client
 ```
 
 _Optional:_ Point it to the service in your settings.py
@@ -113,7 +108,7 @@ Running the tests
 -----------------
 
 ```bash
-mkvirtualenv django-react
+mkvirtualenv react-render
 pip install .
 cd tests
 npm install
