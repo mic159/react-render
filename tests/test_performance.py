@@ -1,7 +1,7 @@
 import os
 import time
 import unittest
-from react_render.render import render_component
+from react_render.django import render_component
 
 path_to_component = os.path.abspath(os.path.join(os.path.dirname(__file__), 'components', 'PerfTestComponent.jsx'))
 

@@ -1,11 +1,11 @@
-from setuptools import setup
+from setuptools import setup, find_packages
 
-VERSION = '0.10.3'
+VERSION = '0.11.0'
 
 setup(
     name='react-render-client',
     version=VERSION,
-    packages=['react_render'],
+    packages=find_packages(exclude=['example', 'tests']),
     install_requires=[
         'django>=1.6',
         'requests>=2',

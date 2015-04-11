@@ -2,7 +2,7 @@ import json
 from django.core.urlresolvers import reverse
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
-from react_render.render import render_component
+from react_render.django import render_component
 
 comments = []
 

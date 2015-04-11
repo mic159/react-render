@@ -1,6 +1,10 @@
 {
   "private": true,
+  "scripts": {
+    "react-service": "react-service --debug --watch"
+  },
   "dependencies": {
-    "react": "^0.13.0"
+    "react": "^0.13.0",
+    "react-render-service": "^0.11.0"
   }
 }

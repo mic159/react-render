@@ -3,7 +3,7 @@ import json
 import os
 import unittest
 from django.utils import timezone, six
-from react_render.render import render_component, RenderedComponent
+from react_render.django.render import render_component, RenderedComponent
 from react_render.exceptions import ComponentRenderingError, ComponentSourceFileNotFound
 
 COMPONENT_ROOT = os.path.join(os.path.dirname(__file__), 'components')

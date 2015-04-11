@@ -8,7 +8,7 @@ Example
 -------
 
 ```python
-from react_render.render import render_component
+from react_render.django.render import render_component
 
 props = {
     'foo': 'bar',
@@ -112,6 +112,7 @@ mkvirtualenv react-render
 pip install .
 cd tests
 npm install
+npm run react-render &
 cd ..
 python runtests.py
 ```
