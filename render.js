@@ -2,11 +2,11 @@
 
 var fs = require('fs');
 var path = require('path');
-var resolve = require('resolve');
 var express = require('express');
 var morgan = require('morgan');
 var bodyParser = require('body-parser');
-require('node-jsx').install({extension: '.jsx'});
+var React = require('react');
+var ReactDOMServer = require('react-dom/server');
 
 var argv = require('yargs')
   .usage('Usage: $0 [--port NUM]')
@@ -22,18 +22,17 @@ var app = express();
 app.use(bodyParser.json());
 app.use(morgan('[:date[iso]] :method :url :status :response-time ms - :file :res[content-length]'));
 
+// Component cache living in global scope
 var cache = {};
 
 var Component = function Component(pathToSource) {
   this.pathToSource = pathToSource;
-  this.pathToReact = resolve.sync('react', {
-    basedir: path.dirname(pathToSource)
-  });
   this.component = require(this.pathToSource);
   // Detect bad JS file
   if (!this.component || !('displayName' in this.component)) {
     throw new Error('Not a React component: ' + this.pathToSource);
   }
+  this.factory = React.createFactory(this.component);
   if (argv.watch) {
     var watcher = fs.watch(this.pathToSource, function reloader(event, filename) {
       console.log('[%s] Reloading %s', new Date().toISOString(), pathToSource);
@@ -45,12 +44,11 @@ var Component = function Component(pathToSource) {
 };
 
 Component.prototype.render = function render(props, toStaticMarkup, callback) {
-  var React = require(this.pathToReact);
-  var element = React.createElement(this.component, props);
+  var element = this.factory(props);
   if (toStaticMarkup) {
-    callback(React.renderToStaticMarkup(element));
+    callback(ReactDOMServer.renderToStaticMarkup(element));
   } else {
-    callback(React.renderToString(element));
+    callback(ReactDOMServer.renderToString(element));
   }
 };
 

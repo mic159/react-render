@@ -1,18 +1,18 @@
 {
   "name": "react-render-service",
-  "version": "0.11.0",
+  "version": "1.0.0",
   "description": "HTTP microservice for rendering React to HTML on the server side",
   "main": "render.js",
   "bin": {
     "react-service": "render.js"
   },
   "dependencies": {
-    "body-parser": "^1.12.2",
-    "express": "^4.12.3",
-    "morgan": "^1.5.2",
-    "node-jsx": "^0.12.4",
-    "resolve": "^1.1.5",
-    "yargs": "^3.6.0"
+    "body-parser": "^1.14.1",
+    "express": "^4.13.3",
+    "morgan": "^1.6.1",
+    "react-dom": "^0.14.2",
+    "react": "^0.14.2",
+    "yargs": "^3.29.0"
   },
   "author": "Michael Cooper",
   "repository": {
