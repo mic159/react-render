@@ -5,6 +5,6 @@
   },
   "dependencies": {
     "react": "^0.14.2",
-    "react-render-service": "^1.0.0"
+    "react-render-service": "^0.12.0"
   }
 }
