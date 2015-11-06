@@ -1,7 +1,8 @@
 from __future__ import absolute_import
 
 import os
-from django.contrib.staticfiles import finders
+import logging
+from django.contrib.staticfiles.finders import find as find_static
 from django.core.serializers.json import DjangoJSONEncoder
 from django.utils.safestring import mark_safe
 from django.conf import settings
@@ -9,6 +10,8 @@ from react_render.core import render_component as render_core
 from react_render.core import DEFAULT_SERVICE_URL
 
 SERVICE_URL = getattr(settings, 'REACT_SERVICE_URL', DEFAULT_SERVICE_URL)
+
+log = logging.getLogger('react-render-client')
 
 
 class RenderedComponent(object):
@@ -32,11 +35,15 @@ class RenderedComponent(object):
 
 def render_component(path_to_source, props=None, to_static_markup=False, json_encoder=None):
     if not os.path.isabs(path_to_source):
-        path_to_source = finders.find(path_to_source) or path_to_source
+        path_to_source = find_static(path_to_source) or path_to_source
 
     if json_encoder is None:
         json_encoder = DjangoJSONEncoder().encode
 
-    html = render_core(path_to_source, props, to_static_markup, json_encoder, service_url=SERVICE_URL)
+    try:
+        html = render_core(path_to_source, props, to_static_markup, json_encoder, service_url=SERVICE_URL)
+    except:
+        log.exception('Error while rendering')
+        html = ''
 
     return RenderedComponent(html, path_to_source, props, json_encoder)
