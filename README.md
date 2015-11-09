@@ -109,10 +109,11 @@ Running the tests
 
 ```bash
 mkvirtualenv react-render
-pip install .
+pip install -e .
 cd tests
 npm install
-npm run react-render &
+npm run build
 cd ..
+node renderer.js &
 python runtests.py
 ```

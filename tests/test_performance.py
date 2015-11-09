@@ -3,7 +3,7 @@ import time
 import unittest
 from react_render.django import render_component
 
-path_to_component = os.path.abspath(os.path.join(os.path.dirname(__file__), 'components', 'PerfTestComponent.jsx'))
+path_to_component = os.path.abspath(os.path.join(os.path.dirname(__file__), 'components', 'PerfTestComponent.js'))
 
 
 def median(l):

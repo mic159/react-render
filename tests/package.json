@@ -1,10 +1,12 @@
 {
   "private": true,
   "scripts": {
-    "react-service": "react-service --debug --watch"
+    "build": "webpack"
   },
   "dependencies": {
+    "babel-core": "^5.8.22",
+    "babel-loader": "^5.3.3",
     "react": "^0.14.2",
-    "react-render-service": "^0.12.0"
+    "webpack": "^1.12.3"
   }
 }

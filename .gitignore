@@ -55,5 +55,7 @@ target/
 
 node_modules
 example/example_app/static/js
+tests/components/*.js
+tests/test_app/static/test_app/*.js
 .idea
 
