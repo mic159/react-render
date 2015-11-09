@@ -15,7 +15,7 @@ props = {
     'woz': [1,2,3],
 }
 
-rendered = render_component('path/to/component.jsx', props=props)
+rendered = render_component('path/to/component.js', props=props)
 
 print(rendered)
 ```
@@ -65,8 +65,9 @@ to output the component's HTML.
 
 Arguments:
 
-- `path_to_source` — a path to a JS or JSX file which exports the component. If the 
+- `path_to_source` — a path to a JS file which exports the component. If the 
   path is relative, django's static file finders will be used to find the file.
+  *NOTE* Must be compiled JS, not JSX.
 - `props` *optional* — a dictonary that will be serialised to JSON and passed to 
   the component during the renderering process.
 - `to_static_markup` *optional* — a boolean indicating that React's `renderToStaticMarkup`
