@@ -1,6 +1,12 @@
 Changelog
 =========
 
+### 0.12.1
+
+- Allow ES6 style React components
+
+*NOTE: Only JS changed in this release*
+
 ### 0.12.0
 
 - Bump dependencies
