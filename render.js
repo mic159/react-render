@@ -28,11 +28,17 @@ var cache = {};
 var Component = function Component(pathToSource) {
   this.pathToSource = pathToSource;
   this.component = require(this.pathToSource);
+
   // Detect bad JS file
-  if (!this.component || !('displayName' in this.component)) {
+  if (!this.component || !(
+      typeof this.component.render === 'function' ||
+      typeof this.component.prototype.render === 'function'
+    )) {
     throw new Error('Not a React component: ' + this.pathToSource);
   }
+
   this.factory = React.createFactory(this.component);
+
   if (argv.watch) {
     var watcher = fs.watch(this.pathToSource, function reloader(event, filename) {
       console.log('[%s] Reloading %s', new Date().toISOString(), pathToSource);
