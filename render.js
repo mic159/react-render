@@ -19,7 +19,7 @@ var argv = require('yargs')
 morgan.token('file', function(req, res){ return path.basename(req.body.path_to_source); });
 
 var app = express();
-app.use(bodyParser.json());
+app.use(bodyParser.json({limit: '50mb'}));
 app.use(morgan('[:date[iso]] :method :url :status :response-time ms - :file :res[content-length]'));
 
 // Component cache living in global scope
