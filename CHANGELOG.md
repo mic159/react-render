@@ -1,6 +1,12 @@
 Changelog
 =========
 
+### 0.12.2
+
+- Larger request limit for react-render-service
+
+*NOTE: Only JS changed in this release*
+
 ### 0.12.1
 
 - Allow ES6 style React components
