@@ -13,6 +13,8 @@ var argv = require('yargs')
   .describe('port', 'The port to listen to')
   .describe('debug', 'Print stack traces on error').alias('debug', 'd')
   .describe('watch', 'Watch the source for changes and reload')
+  .describe('whitelist', 'Whitelist a root directory where the javascript files can be')
+  .default('whitelist', process.env.REACT_WHITELIST)
   .help('h').alias('h', 'help')
   .argv;
 
@@ -65,6 +67,12 @@ app.post('/render', function service(request, response) {
 
   if (!pathToSource) {
     return response.status(400).send('path_to_source required');
+  }
+  pathToSource = path.normalize(pathToSource);
+  if (argv.whitelist) {
+    if (!pathToSource.startsWith(argv.whitelist)) {
+      return response.status(400).send('invalid path_to_source');
+    }
   }
 
   if (!(pathToSource in cache)) {
