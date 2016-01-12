@@ -34,7 +34,7 @@ Documentation
 - [render_component()](#render_component)
 - [RenderedComponent](#renderedcomponent)
 - [Running the tests](#running-the-tests)
-- [react-service settings](react-service-settings)
+- [react-service settings](#react-service-settings)
 
 Installation
 ------------
