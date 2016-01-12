@@ -1,6 +1,14 @@
 Changelog
 =========
 
+### 0.12.3
+
+- Add a directory whitelist option to restrict where the service can load from
+  Can be set by either CLI switch: `--whitelist /some/path`
+  Or by environment variable: `REACT_WHITELIST=/some/path react-service`
+
+*NOTE: Only JS changed in this release*
+
 ### 0.12.2
 
 - Larger request limit for react-render-service

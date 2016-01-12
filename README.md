@@ -34,6 +34,7 @@ Documentation
 - [render_component()](#render_component)
 - [RenderedComponent](#renderedcomponent)
 - [Running the tests](#running-the-tests)
+- [react-service settings](react-service-settings)
 
 Installation
 ------------
@@ -103,6 +104,16 @@ props. This allows you to reuse the encoded form of your props on the client-sid
     var myProps = {{ my_component.render_props }};
 </script>
 ```
+
+react-service settings
+----------------
+
+- `--host` Bind to a different interface, by default this is localhost.
+- `--port` Bind to a different port. By default it is `63578`
+- `--watch` Enable developer mode where it will automatically re-load the bundles if they change.
+- `--whitelist` Restrict the directory that the service can access.
+  By default, the service will attempt to load any arbitrary path it is given.
+  Can also be set via the `REACT_WHITELIST` environment variable.
 
 
 Running the tests
