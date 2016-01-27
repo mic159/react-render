@@ -1,6 +1,14 @@
 Changelog
 =========
 
+
+
+### 0.12.4
+
+- Allow binding to other interfaces
+
+*NOTE: Only JS changed in this release*
+
 ### 0.12.3
 
 - Add a directory whitelist option to restrict where the service can load from
