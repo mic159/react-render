@@ -9,8 +9,9 @@ var React = require('react');
 var ReactDOMServer = require('react-dom/server');
 
 var argv = require('yargs')
-  .usage('Usage: $0 [--port NUM]')
+  .usage('Usage: $0 [--port NUM] [--host ADDRESS]')
   .describe('port', 'The port to listen to')
+  .describe('host', 'The host address to bind to')
   .describe('debug', 'Print stack traces on error').alias('debug', 'd')
   .describe('watch', 'Watch the source for changes and reload')
   .describe('whitelist', 'Whitelist a root directory where the javascript files can be')
@@ -91,7 +92,7 @@ app.use(function errorHandler(err, request, response, next) {
   response.status(500).send(argv.debug ? err.stack : "An error occurred during rendering");
 });
 
-var server = app.listen(argv.port || 63578, 'localhost', function() {
+var server = app.listen(argv.port || 63578, argv.host || 'localhost', function() {
   console.log('Started server at http://%s:%s', server.address().address, server.address().port);
 });
 
