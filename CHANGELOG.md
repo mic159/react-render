@@ -2,6 +2,12 @@ Changelog
 =========
 
 
+### 0.12.5
+
+- Support manifest staticfiles storage classes by resolving the hashed name of files.
+  ie. `js/hello.js` to `js/hello.d0bf07ff5f07.js`.
+
+*NOTE: Only the python code changed in this release*
 
 ### 0.12.4
 
