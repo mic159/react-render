@@ -1,6 +1,15 @@
 Changelog
 =========
 
+### 0.13.0
+
+Fixed a potential XSS bug when using `render_props` as per the example.
+This changes the output of `render_props` to be `JSON.parse("[escapedJsonString]")`.
+
+**Potentially Breaking Change:** This could potentially break if you are using `render_props` in any way other
+than to put things into a script tag.
+
+*NOTE: Only the python code changed in this release*
 
 ### 0.12.5
 
