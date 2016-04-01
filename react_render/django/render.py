@@ -33,7 +33,7 @@ class RenderedComponent(object):
     def render_props(self):
         if self.props:
             encoded = escapejs(self.json_encoder(self.props))
-            return mark_safe('JSON.parse("{0}")'.format(encoded))
+            return mark_safe("JSON.parse('{0}')".format(encoded))
         return '{}'
 
 
