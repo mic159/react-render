@@ -6,6 +6,7 @@ from django.contrib.staticfiles.storage import staticfiles_storage, HashedFilesM
 from django.contrib.staticfiles.finders import find as find_static
 from django.core.serializers.json import DjangoJSONEncoder
 from django.utils.safestring import mark_safe
+from django.utils.html import escapejs
 from django.conf import settings
 from react_render.core import render_component as render_core
 from react_render.core import DEFAULT_SERVICE_URL
@@ -31,7 +32,8 @@ class RenderedComponent(object):
 
     def render_props(self):
         if self.props:
-            return mark_safe(self.json_encoder(self.props))
+            encoded = escapejs(self.json_encoder(self.props))
+            return mark_safe('JSON.parse("{0}")'.format(encoded))
         return '{}'
 
 
