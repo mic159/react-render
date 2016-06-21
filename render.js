@@ -96,7 +96,7 @@ app.post('/render', function service(request, response) {
 
 app.use(function errorHandler(err, request, response, next) {
   console.log('[' + new Date().toISOString() + '] ' + err.stack);
-  response.status(500).send(argv.debug ? err.stack : "An error occurred during rendering");
+  response.status(500).send(argv.debug ? err.stack : err.toString());
 });
 
 var server = app.listen(argv.port || 63578, argv.host || 'localhost', function() {
