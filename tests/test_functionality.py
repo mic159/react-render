@@ -13,15 +13,12 @@ PATH_TO_HELLO_WORLD_COMPONENT_JSX = os.path.join(COMPONENT_ROOT, 'HelloWorld.js'
 PATH_TO_HELLO_WORLD_WRAPPER_COMPONENT = os.path.join(COMPONENT_ROOT, 'HelloWorldWrapper.js')
 PATH_TO_ERROR_THROWING_COMPONENT = os.path.join(COMPONENT_ROOT, 'ErrorThrowingComponent.js')
 PATH_TO_SYNTAX_ERROR_COMPONENT = os.path.join(COMPONENT_ROOT, 'SyntaxErrorComponent.js')
+PATH_TO_ES6 = os.path.join(COMPONENT_ROOT, 'ES6Test.js')
 PATH_TO_STATIC_FILE_FINDER_COMPONENT = 'test_app/StaticFileFinderComponent.js'
 
 
 class TestDjangoReact(unittest.TestCase):
     def test_can_render_a_component_in_js(self):
-        component = render_component(PATH_TO_HELLO_WORLD_COMPONENT_JSX, to_static_markup=True)
-        self.assertEqual(str(component), '<span>Hello </span>')
-
-    def test_can_render_a_component_in_jsx(self):
         component = render_component(PATH_TO_HELLO_WORLD_COMPONENT_JSX, to_static_markup=True)
         self.assertEqual(str(component), '<span>Hello </span>')
 
@@ -32,6 +29,14 @@ class TestDjangoReact(unittest.TestCase):
             to_static_markup=True
         )
         self.assertEqual(str(component), '<span>Hello world!</span>')
+
+    def test_can_render_a_component_in_es6(self):
+        component = render_component(
+            PATH_TO_ES6,
+            props={'name': 'ES6'},
+            to_static_markup=True
+        )
+        self.assertEqual(str(component), '<span>Hello ES6</span>')
 
     def test_can_render_a_component_requiring_another_component(self):
         component = render_component(
@@ -76,7 +81,7 @@ class TestDjangoReact(unittest.TestCase):
             }
         )
         self.assertEqual(component.props, {'name': 'world!'})
-        self.assertEqual(component.render_props(), 'JSON.parse("{\u0022name\u0022: \u0022world!\u0022}")')
+        self.assertEqual(component.render_props(), "JSON.parse('{\u0022name\u0022: \u0022world!\u0022}')")
 
     def test_can_serialize_datetime_values_in_props(self):
         component = render_component(
@@ -89,7 +94,7 @@ class TestDjangoReact(unittest.TestCase):
             }
         )
         # Gotta remove the JSON.parse and unescape the string
-        stripped = component.render_props().rstrip(')').lstrip('JSON.parse(').strip('"')
+        stripped = component.render_props().rstrip('\')').lstrip('JSON.parse(').strip('\'"')
         deserialized = json.loads(stripped.decode('unicode_escape'))
         self.assertEqual(
             deserialized,

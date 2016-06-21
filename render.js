@@ -33,10 +33,17 @@ var Component = function Component(pathToSource) {
   this.component = require(this.pathToSource);
 
   // Detect bad JS file
-  if (!this.component || !(
-      typeof this.component.render === 'function' ||
-      typeof this.component.prototype.render === 'function'
-    )) {
+  if (!this.component) {
+    throw new Error('JS file did not export anything: ' + this.pathToSource);
+  }
+  if (typeof this.component.default !== 'undefined') {
+    // ES6 'export default' support
+    this.component = this.component.default;
+  }
+  if (typeof this.component.render !== 'function' &&
+      ( typeof this.component.prototype === 'undefined' ||
+        typeof this.component.prototype.render !== 'function')
+    ) {
     throw new Error('Not a React component: ' + this.pathToSource);
   }
 

@@ -7,7 +7,14 @@ var moduleOpts = {
   // Inform webpack to use the babel loader when reading files
   // ending in '.jsx'
   loaders: [
-    {test: /\.jsx$/, exclude: /node_modules/, loader: 'babel'}
+    {
+      test: /\.jsx$/,
+      exclude: /node_modules/,
+      loader: 'babel-loader',
+      query: {
+        presets: ['es2015', 'react']
+      }
+    }
   ]
 };
 
@@ -19,7 +26,8 @@ module.exports = [
       'HelloWorld': ['./HelloWorld.jsx'],
       'HelloWorldWrapper': ['./HelloWorldWrapper.jsx'],
       'PerfTestComponent': ['./PerfTestComponent.jsx'],
-      'SyntaxErrorComponent': ['./SyntaxErrorComponent.jsx']
+      'SyntaxErrorComponent': ['./SyntaxErrorComponent.jsx'],
+      'ES6Test': ['./ES6Test.jsx'],
     },
     output: {
       path: context,

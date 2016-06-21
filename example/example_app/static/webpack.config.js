@@ -24,7 +24,7 @@ module.exports = [
   {
     context: context,
     entry: {
-      'main': ['./jsx/main.jsx']
+      main: ['./jsx/main.jsx']
     },
     output: {
       path: outputDir,

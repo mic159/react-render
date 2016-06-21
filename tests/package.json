@@ -4,9 +4,11 @@
     "build": "webpack"
   },
   "dependencies": {
-    "babel-core": "^5.8.22",
-    "babel-loader": "^5.3.3",
+    "babel-core": "^6.9.1",
+    "babel-loader": "^6.2.4",
+    "babel-preset-es2015": "^6.9.0",
+    "babel-preset-react": "^6.5.0",
     "react": "^0.14.2",
-    "webpack": "^1.12.3"
+    "webpack": "^1.13.1"
   }
 }
