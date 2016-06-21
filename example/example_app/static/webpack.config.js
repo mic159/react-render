@@ -13,7 +13,14 @@ var moduleOpts = {
   // Inform webpack to use the babel loader when reading files
   // ending in '.jsx'
   loaders: [
-    {test: /\.jsx$/, exclude: /node_modules/, loader: 'babel'}
+    {
+      test: /\.jsx$/,
+      exclude: /node_modules/,
+      loader: 'babel-loader',
+      query: {
+        presets: ['es2015', 'react']
+      }
+    }
   ]
 };
 
