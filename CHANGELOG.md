@@ -1,6 +1,18 @@
 Changelog
 =========
 
+### 0.13.1
+
+- Support `export default` ES6 style component exports.
+- Show JS error message in python exception when not in debug mode.
+- Updated some dependencies
+  - `body-parser` 1.14.1 > 1.15.2
+  - `express` 4.13.3 > 4.14.0
+  - `morgan` 1.6.1 > 1.7.0
+- Updated example and tests to use babel 6.
+
+*NOTE: Only JS changed in this release*
+
 ### 0.13.0
 
 Fixed a potential XSS bug when using `render_props` as per the example.
