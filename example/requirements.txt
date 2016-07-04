@@ -1,1 +1,1 @@
-react-render-client==0.13.0
+react-render-client==1.0.0

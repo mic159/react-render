@@ -1,6 +1,15 @@
 Changelog
 =========
 
+### 1.0.0
+
+Upgraded to React 15
+
+*Note:* This should still work with components written in react `0.14.x`, but will show a warning
+from react about re-rendering over existing HTML.
+This is because of a change to ReactDOM, where it no longer inserts `data-reactid` tags in the markup.
+Read more here: https://facebook.github.io/react/blog/2016/04/07/react-v15.html
+
 ### 0.13.1
 
 - Support `export default` ES6 style component exports.

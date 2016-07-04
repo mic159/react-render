@@ -1,6 +1,6 @@
 from setuptools import setup, find_packages
 
-VERSION = '0.13.0'
+VERSION = '1.0.0'
 
 setup(
     name='react-render-client',
