@@ -8,7 +8,7 @@ var moduleOpts = {
   // an optimisation which helps to reduce the build time associated
   // with large libraries
   noParse: [
-    /jquery/
+    /jquery/,
   ],
   // Inform webpack to use the babel loader when reading files
   // ending in '.jsx'
@@ -19,9 +19,9 @@ var moduleOpts = {
       loader: 'babel-loader',
       query: {
         presets: ['es2015', 'react']
-      }
-    }
-  ]
+      },
+    },
+  ],
 };
 
 module.exports = [
@@ -31,16 +31,16 @@ module.exports = [
   {
     context: context,
     entry: {
-      main: ['./jsx/main.jsx']
+      main: ['./jsx/main.jsx'],
     },
     output: {
       path: outputDir,
       filename: '[name].js',
       // A global variable that the bundle will be exposed as
-      library: 'main'
+      library: 'main',
     },
     module: moduleOpts,
-    devtool: 'eval'
+    devtool: 'eval',
   },
   // -----------------
   //    Server side
@@ -48,12 +48,12 @@ module.exports = [
   {
     context: context,
     entry: {
-      'main': ['./jsx/components/CommentBox.jsx']
+      main: ['./jsx/components/CommentBox.jsx'],
     },
     output: {
       path: outputDir,
       filename: '[name].server.js',
-      libraryTarget: 'commonjs2'
+      libraryTarget: 'commonjs2',
     },
-    module: moduleOpts
+    module: moduleOpts,
   }];
