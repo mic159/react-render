@@ -18,7 +18,7 @@ var moduleOpts = {
       exclude: /node_modules/,
       loader: 'babel-loader',
       query: {
-        presets: ['es2015', 'react']
+        presets: ['es2015', 'react'],
       },
     },
   ],
@@ -37,7 +37,7 @@ module.exports = [
       path: outputDir,
       filename: '[name].js',
       // A global variable that the bundle will be exposed as
-      library: 'main',
+      library: 'app',
     },
     module: moduleOpts,
     devtool: 'eval',

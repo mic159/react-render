@@ -30,7 +30,7 @@
 				// which allows us to define a global function that is the entry point
 				// of the bundle.
 				// Call it and pass in the same properties as on the server side.
-				main({{ comment_box.render_props }});
+				app.bootstrap({{ comment_box.render_props }});
 			})();
 		</script>
 	{% endif %}
