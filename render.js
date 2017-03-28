@@ -44,7 +44,7 @@ var Component = function Component(pathToSource) {
       ( typeof this.component.prototype === 'undefined' ||
         typeof this.component.prototype.render !== 'function')
     ) {
-    throw new Error('Not a React component: ' + this.pathToSource);
+    throw new Error(this.component.name + ' is not a valid React component because it has no render method: ' + this.pathToSource);
   }
 
   this.factory = React.createFactory(this.component);
