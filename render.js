@@ -62,9 +62,9 @@ var Component = function Component(pathToSource) {
 Component.prototype.render = function render(props, toStaticMarkup, callback) {
   var element = this.factory(props);
   if (toStaticMarkup) {
-    callback(ReactDOMServer.renderToStaticMarkup(element));
+    callback(ReactDOMServer.renderToStaticNodeStream(element));
   } else {
-    callback(ReactDOMServer.renderToString(element));
+    callback(ReactDOMServer.renderToNodeStream(element));
   }
 };
 
