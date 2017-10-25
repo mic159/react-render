@@ -1,6 +1,6 @@
-import React, {Component} from 'react';
+import React, {PureComponent} from 'react';
 
-class StaticFileFinderComponent extends Component {
+class StaticFileFinderComponent extends PureComponent {
   render() {
     return <span>You found me.</span>
   }
