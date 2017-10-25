@@ -1,7 +1,15 @@
-var React = require('react');
+import React, {Component} from 'react';
 
-module.exports = React.createClass({
-  handleSubmit: function(e) {
+export default class CommentForm extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {author: '', text: ''};
+    this.handleAuthorChange = this.handleAuthorChange.bind(this);
+    this.handleTextChange = this.handleTextChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleSubmit(e) {
     e.preventDefault();
     var author = this.state.author.trim();
     var text = this.state.text.trim();
@@ -10,17 +18,17 @@ module.exports = React.createClass({
     }
     this.props.onCommentSubmit({author: author, text: text});
     this.setState({author: '', text: ''});
-  },
-  getInitialState: function() {
-    return {author: '', text: ''};
-  },
-  handleAuthorChange: function(e) {
+  }
+
+  handleAuthorChange(e) {
     this.setState({author: e.target.value});
-  },
-  handleTextChange: function(e) {
+  }
+
+  handleTextChange(e) {
     this.setState({text: e.target.value});
-  },
-  render: function() {
+  }
+
+  render() {
     return (
       <form method="POST" action={this.props.url} onSubmit={this.handleSubmit}>
         <h2>Submit a comment</h2>
@@ -45,10 +53,9 @@ module.exports = React.createClass({
           </label>
         </div>
         <div className="text-right">
-          <button type="reset" className="btn btn-default">Reset</button>
           <button type="submit" className="btn btn-primary">Submit</button>
         </div>
       </form>
     );
   }
-});
+}

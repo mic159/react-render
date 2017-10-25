@@ -16,7 +16,7 @@
 			{% if no_js %}
 				<a href="{% url 'index' %}">View this page with JavaScript</a>
 			{% else %}
-				<a href="{% url 'index-no-js' %}">View this page without JavaScript</a>
+				<a href="{% url 'index' %}?no-js">View this page without JavaScript</a>
 			{% endif %}
 		</p>
 		<!-- Insert the CommentBox's rendered markup -->

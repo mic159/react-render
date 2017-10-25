@@ -45,7 +45,7 @@ def comment(request):
             'text': request.POST.get('text', None),
         })
         if not request.is_ajax():
-            return redirect('index-no-js')
+            return redirect('/?no-js')
     return HttpResponse(
         json.dumps(comments),
         content_type='application/json'

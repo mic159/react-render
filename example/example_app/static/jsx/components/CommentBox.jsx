@@ -1,20 +1,28 @@
-var React = require('react');
-var $ = require('jquery');
-var CommentList = require('./CommentList.jsx');
-var CommentForm = require('./CommentForm.jsx');
+import React, {Component} from 'react';
+import $ from 'jquery';
+import CommentList from './CommentList.jsx';
+import CommentForm from './CommentForm.jsx';
 
-module.exports = React.createClass({
-  getInitialState: function() {
-    return {comments: this.props.comments};
-  },
-  handleCommentSubmit: function(comment) {
+export default class CommentBox extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      comments: props.comments,
+    };
+    this.postComment = this.postComment.bind(this);
+    this.getComments = this.getComments.bind(this);
+    this.handleCommentSubmit = this.handleCommentSubmit.bind(this);
+  }
+
+  handleCommentSubmit(comment) {
     var comments = this.state.comments;
     comments.push(comment);
     this.setState({comments: comments}, function() {
       this.postComment(comment);
     });
-  },
-  postComment: function(comment) {
+  }
+
+  postComment(comment) {
     $.ajax({
       url: this.props.url,
       type: 'POST',
@@ -27,8 +35,9 @@ module.exports = React.createClass({
         console.error(this.props.url, status, err.toString());
       }.bind(this)
     });
-  },
-  getComments: function() {
+  }
+
+  getComments() {
     $.ajax({
       url: this.props.url,
       dataType: 'json',
@@ -38,16 +47,19 @@ module.exports = React.createClass({
       error: function(xhr, status, err) {
         console.error(this.props.url, status, err.toString());
       }.bind(this),
-      complete: this.pollForNewComments
+      complete: this.pollForNewComments.bind(this)
     });
-  },
-  pollForNewComments: function() {
+  }
+
+  pollForNewComments() {
     setTimeout(this.getComments, this.props.pollInterval);
-  },
-  componentDidMount: function() {
+  }
+
+  componentDidMount() {
     this.pollForNewComments();
-  },
-  render: function() {
+  }
+
+  render() {
     return (
       <div>
         <CommentList comments={this.state.comments} />
@@ -55,4 +67,4 @@ module.exports = React.createClass({
       </div>
     );
   }
-});
+}
