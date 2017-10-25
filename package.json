@@ -15,8 +15,8 @@
     "yargs": "^3.29.0"
   },
   "peerDependencies": {
-    "react": "^0.14 || ^16.0",
-    "react-dom": "^0.14 || ^16.0"
+    "react": "^15.0 || ^16.0",
+    "react-dom": "^145.0|| ^16.0"
   },
   "author": "Michael Cooper",
   "repository": {
