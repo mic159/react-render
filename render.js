@@ -59,12 +59,12 @@ var Component = function Component(pathToSource) {
   }
 };
 
-Component.prototype.render = function render(props, toStaticMarkup, callback) {
+Component.prototype.render = function render(props, toStaticMarkup) {
   var element = this.factory(props);
   if (toStaticMarkup) {
-    callback(ReactDOMServer.renderToStaticNodeStream(element));
+    return ReactDOMServer.renderToStaticNodeStream(element);
   } else {
-    callback(ReactDOMServer.renderToNodeStream(element));
+    return ReactDOMServer.renderToNodeStream(element);
   }
 };
 
@@ -89,15 +89,16 @@ app.post('/render', function service(request, response) {
   }
   var component = cache[pathToSource];
 
-  component.render(props, toStaticMarkup, function(output) {
-    response.send(output);
-  });
+  var stream = component.render(props, toStaticMarkup);
+  stream.on('error', function(err) {errorHandler(err, request, response)});
+  stream.pipe(response);
 });
 
-app.use(function errorHandler(err, request, response, next) {
+function errorHandler(err, request, response, next) {
   console.log('[' + new Date().toISOString() + '] ' + err.stack);
   response.status(500).send(argv.debug ? err.stack : err.toString());
-});
+}
+app.use(errorHandler);
 
 var server = app.listen(argv.port || 63578, argv.host || 'localhost', function() {
   console.log('Started server at http://%s:%s', server.address().address, server.address().port);
