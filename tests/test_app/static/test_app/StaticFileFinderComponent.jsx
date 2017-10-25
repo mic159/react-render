@@ -1,9 +1,9 @@
-var React = require('react');
+import React, {Component} from 'react';
 
-var StaticFileFinderComponent = React.createClass({
-    render: function() {
-        return <span>You found me.</span>;
-    }
-});
+class StaticFileFinderComponent extends Component {
+  render() {
+    return <span>You found me.</span>
+  }
+}
 
-module.exports = StaticFileFinderComponent;
+export default StaticFileFinderComponent;
