@@ -13,5 +13,11 @@ install:
   - "npm install -g npm"
   - "pip install Django==$DJANGO_VERSION"
   - "pip install ."
+  - "npm install --prefix=tests"
+  - "npm run build --prefix=tests"
 
-script: python runtests.py
+script: -|
+ node render.js &
+ NODE_PID=$!
+ python runtests.py
+ kill $NODE_PID
