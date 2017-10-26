@@ -16,8 +16,4 @@ install:
   - "npm install --prefix=tests"
   - "npm run build --prefix=tests"
 
-script: -|
- node render.js &
- NODE_PID=$!
- python runtests.py
- kill $NODE_PID
+script: python runtests.py
