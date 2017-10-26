@@ -4,12 +4,9 @@ export default class CommentForm extends Component {
   constructor(props) {
     super(props);
     this.state = {author: '', text: ''};
-    this.handleAuthorChange = this.handleAuthorChange.bind(this);
-    this.handleTextChange = this.handleTextChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleSubmit(e) {
+  handleSubmit = e => {
     e.preventDefault();
     var author = this.state.author.trim();
     var text = this.state.text.trim();
@@ -18,15 +15,15 @@ export default class CommentForm extends Component {
     }
     this.props.onCommentSubmit({author: author, text: text});
     this.setState({author: '', text: ''});
-  }
+  };
 
-  handleAuthorChange(e) {
+  handleAuthorChange = e => {
     this.setState({author: e.target.value});
-  }
+  };
 
-  handleTextChange(e) {
+  handleTextChange = e => {
     this.setState({text: e.target.value});
-  }
+  };
 
   render() {
     return (

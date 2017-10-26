@@ -9,20 +9,17 @@ export default class CommentBox extends Component {
     this.state = {
       comments: props.comments,
     };
-    this.postComment = this.postComment.bind(this);
-    this.getComments = this.getComments.bind(this);
-    this.handleCommentSubmit = this.handleCommentSubmit.bind(this);
   }
 
-  handleCommentSubmit(comment) {
+  handleCommentSubmit = comment => {
     var comments = this.state.comments;
     comments.push(comment);
     this.setState({comments: comments}, function() {
       this.postComment(comment);
     });
-  }
+  };
 
-  postComment(comment) {
+  postComment = comment => {
     $.ajax({
       url: this.props.url,
       type: 'POST',
@@ -35,9 +32,9 @@ export default class CommentBox extends Component {
         console.error(this.props.url, status, err.toString());
       }.bind(this)
     });
-  }
+  };
 
-  getComments() {
+  getComments = () => {
     $.ajax({
       url: this.props.url,
       dataType: 'json',
@@ -49,7 +46,7 @@ export default class CommentBox extends Component {
       }.bind(this),
       complete: this.pollForNewComments.bind(this)
     });
-  }
+  };
 
   pollForNewComments() {
     setTimeout(this.getComments, this.props.pollInterval);
