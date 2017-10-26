@@ -13,6 +13,7 @@ install:
   - "npm install -g npm"
   - "pip install Django==$DJANGO_VERSION"
   - "pip install ."
+  - "npm install"
   - "npm install --prefix=tests"
   - "npm run build --prefix=tests"
 
