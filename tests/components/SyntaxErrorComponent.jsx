@@ -1,9 +1,9 @@
-var React = require('react');
+import React, {PureComponent} from 'react';
 
-var SyntaxErrorComponent = React.createClass({
-    render: function() {
-        ?+
-    }
-});
+class SyntaxErrorComponent extends PureComponent {
+  render() {
+    return ?+@
+  }
+}
 
-module.exports = SyntaxErrorComponent;
+export default SyntaxErrorComponent;

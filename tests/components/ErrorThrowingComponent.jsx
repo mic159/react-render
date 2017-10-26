@@ -1,9 +1,10 @@
-var React = require('react');
+import React, {PureComponent} from 'react';
 
-var ErrorThrowingComponent = React.createClass({
-    render: function() {
-        throw Error();
-    }
-});
+class ErrorThrowingComponent extends PureComponent {
+  render() {
+    throw Error();
+    return null
+  }
+}
 
-module.exports = ErrorThrowingComponent;
+export default ErrorThrowingComponent;

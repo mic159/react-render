@@ -1,9 +1,9 @@
-var React = require('react');
+import React, {PureComponent} from 'react';
 
-var HelloWorld = React.createClass({
-    render: function() {
-        return <span>Hello {this.props.name}</span>;
-    }
-});
+class HelloWorld extends PureComponent {
+  render() {
+    return <span>Hello {this.props.name}</span>
+  }
+}
 
-module.exports = HelloWorld;
+export default HelloWorld;

@@ -1,9 +1,10 @@
 var React = require('react');
 
-var HelloWorld = React.createClass({displayName: 'HelloWorld',
-    render: function() {
+class HelloWorld extends React.Component {
+    static displayName = 'HelloWorld';
+    render() {
         return React.createElement("span", null, "Hello ", this.props.name);
     }
-});
+}
 
 module.exports = HelloWorld;
