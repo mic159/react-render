@@ -7,7 +7,7 @@ python:
 
 env:
   - DJANGO_VERSION=1.8.18
-  - DJANGO_VERSION=1.11.7
+  - DJANGO_VERSION=1.11.6
 
 install:
   - "npm install -g npm"
