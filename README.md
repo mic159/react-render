@@ -126,6 +126,5 @@ cd tests
 npm install
 npm run build
 cd ..
-node render.js &
 python runtests.py
 ```
