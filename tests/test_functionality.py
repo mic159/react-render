@@ -81,7 +81,7 @@ class TestDjangoReact(unittest.TestCase):
             }
         )
         self.assertEqual(component.props, {'name': 'world!'})
-        self.assertEqual(component.render_props(), "JSON.parse('{\u0022name\u0022: \u0022world!\u0022}')")
+        self.assertEqual(component.render_props(), "JSON.parse('{\\u0022name\\u0022: \\u0022world!\\u0022}')")
 
     def test_can_serialize_datetime_values_in_props(self):
         component = render_component(
@@ -95,7 +95,7 @@ class TestDjangoReact(unittest.TestCase):
         )
         # Gotta remove the JSON.parse and unescape the string
         stripped = component.render_props().rstrip('\')').lstrip('JSON.parse(').strip('\'"')
-        deserialized = json.loads(stripped.decode('unicode_escape'))
+        deserialized = json.loads(stripped.encode('utf-8').decode('unicode_escape'))
         self.assertEqual(
             deserialized,
             {
