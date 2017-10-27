@@ -1,6 +1,16 @@
 Changelog
 =========
 
+### 1.1.0
+
+Upgrade to React 16
+
+- Drop support for react `0.14.x`
+- Switch react to version 16
+- Use the new streaming render API for faster TTFB
+
+*Note:* JS only release. Python package remains at 1.0.0
+
 ### 1.0.0
 
 Upgraded to React 15
