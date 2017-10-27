@@ -1,8 +1,9 @@
-var React = require('react');
-var Comment = require('./Comment.jsx');
+import React, {Component} from 'react';
+import Comment from './Comment.jsx';
 
-module.exports = React.createClass({
-  render: function() {
+
+export default class CommentList extends Component {
+  render() {
     if (!this.props.comments.length) {
       return null;
     }
@@ -16,4 +17,4 @@ module.exports = React.createClass({
       </div>
     );
   }
-});
+}

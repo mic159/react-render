@@ -7,8 +7,6 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 DEBUG = True
 
-TEMPLATE_DEBUG = DEBUG
-
 SECRET_KEY = '_'
 
 INSTALLED_APPS = (
@@ -28,6 +26,17 @@ STATIC_URL = '/static/'
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
+TEMPLATES = [{
+    'BACKEND': 'django.template.backends.django.DjangoTemplates',
+    'DIRS': [os.path.join(BASE_DIR, 'templates')],
+    'APP_DIRS': True,
+    'OPTIONS': {
+        'context_processors': [
+            'django.template.context_processors.debug',
+            'django.template.context_processors.request',
+        ],
+    },
+}]
 
 # EXAMPLE APP
 # ===========

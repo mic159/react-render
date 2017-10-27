@@ -1,10 +1,10 @@
-var React = require('react');
-var HelloWorld = require('./HelloWorld.jsx');
+import React, {PureComponent} from 'react';
+import HelloWorld from './HelloWorld.jsx'
 
-var PerfTestComponent = React.createClass({
-    render: function() {
-        return <HelloWorld name={this.props.name} />;
-    }
-});
+class PerfTestComponent extends PureComponent {
+  render() {
+    return <HelloWorld name={this.props.name} />
+  }
+}
 
-module.exports = PerfTestComponent;
+export default PerfTestComponent;

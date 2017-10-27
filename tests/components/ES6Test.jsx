@@ -1,11 +1,14 @@
-import React, {Component, PropTypes} from 'react';
+import PropTypes from 'prop-types';
+import React, {PureComponent} from 'react';
 
-export default class HelloWorld extends Component {
-    render() {
-        return <span>Hello {this.props.name}</span>;
-    }
-};
+class HelloWorld extends PureComponent {
+  render() {
+    return <span>Hello {this.props.name}</span>
+  }
+}
 
 HelloWorld.propTypes = {
     name: PropTypes.string
 };
+
+export default HelloWorld;

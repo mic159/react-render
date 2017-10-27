@@ -1,9 +1,10 @@
-var React = require('react');
-var marked = require('marked');
+import React, {Component} from 'react';
+import marked from 'marked';
 
-module.exports = React.createClass({
-  render: function() {
-    var rawMarkup = marked(this.props.text);
+
+export default class Comment extends Component {
+  render() {
+    const rawMarkup = marked(this.props.text);
     return (
       <div>
         <h3>
@@ -13,4 +14,4 @@ module.exports = React.createClass({
       </div>
     );
   }
-});
+}

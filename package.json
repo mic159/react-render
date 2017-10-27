@@ -10,13 +10,13 @@
     "body-parser": "^1.15.2",
     "express": "^4.14.0",
     "morgan": "^1.7.0",
-    "react-dom": "^15.2",
-    "react": "^15.2",
+    "react-dom": "16.0.0",
+    "react": "16.0.0",
     "yargs": "^3.29.0"
   },
   "peerDependencies": {
-    "react": "^0.14 || ^15.0",
-    "react-dom": "^0.14 || ^15.0"
+    "react": "^15.0 || ^16.0",
+    "react-dom": "^145.0|| ^16.0"
   },
   "author": "Michael Cooper",
   "repository": {
