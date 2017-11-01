@@ -59,12 +59,12 @@ var Component = function Component(pathToSource) {
   }
 };
 
-Component.prototype.render = function render(props, toStaticMarkup) {
+Component.prototype.render = function render(props, toStaticMarkup, callback) {
   var element = this.factory(props);
   if (toStaticMarkup) {
-    return ReactDOMServer.renderToStaticNodeStream(element);
+    callback(ReactDOMServer.renderToStaticMarkup(element));
   } else {
-    return ReactDOMServer.renderToNodeStream(element);
+    callback(ReactDOMServer.renderToString(element));
   }
 };
 
@@ -89,9 +89,9 @@ app.post('/render', function service(request, response) {
   }
   var component = cache[pathToSource];
 
-  var stream = component.render(props, toStaticMarkup);
-  stream.on('error', function(err) {errorHandler(err, request, response)});
-  stream.pipe(response);
+  component.render(props, toStaticMarkup, function(output) {
+    response.send(output);
+  });
 });
 
 function errorHandler(err, request, response, next) {
