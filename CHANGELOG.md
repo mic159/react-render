@@ -1,6 +1,12 @@
 Changelog
 =========
 
+### 1.1.1
+
+Revert to non-streaming API due to performance degredation.
+
+*Note:* JS only release. Python package remains at 1.0.0
+
 ### 1.1.0
 
 Upgrade to React 16
