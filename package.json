@@ -10,8 +10,8 @@
     "body-parser": "^1.15.2",
     "express": "^4.14.0",
     "morgan": "^1.7.0",
-    "react-dom": "16.0.0",
-    "react": "16.0.0",
+    "react-dom": "16.2.0",
+    "react": "16.2.0",
     "yargs": "^3.29.0"
   },
   "peerDependencies": {
@@ -23,7 +23,12 @@
     "type": "git",
     "url": "https://github.com/mic159/react-render.git"
   },
-  "keywords": ["react", "reactjs", "isomorphic", "templates"],
+  "keywords": [
+    "react",
+    "reactjs",
+    "isomorphic",
+    "templates"
+  ],
   "homepage": "https://github.com/mic159/react-render",
   "license": "MIT"
 }
