@@ -1,6 +1,14 @@
 Changelog
 =========
 
+### 1.2.1
+
+Allow chained express middleware.
+This will allow you to impliment things like Newrelic monitoring.
+
+*Note:* JS only release. Python package remains at 1.0.0
+
+
 ### 1.2.0
 
 Update react to 16.4 to support fragments.

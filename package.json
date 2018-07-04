@@ -1,6 +1,6 @@
 {
   "name": "react-render-service",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "HTTP microservice for rendering React to HTML on the server side",
   "main": "render.js",
   "bin": {

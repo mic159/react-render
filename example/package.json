@@ -15,6 +15,6 @@
     "react": "^16.4",
     "react-dom": "^16.4",
     "webpack": "^1.13.1",
-    "react-render-service": "^1.1.0"
+    "react-render-service": "^1.2.1"
   }
 }
