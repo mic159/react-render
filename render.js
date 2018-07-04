@@ -68,7 +68,7 @@ Component.prototype.render = function render(props, toStaticMarkup, callback) {
   }
 };
 
-app.post('/render', function service(request, response) {
+app.post('/render', function service(request, response, next) {
   var toStaticMarkup = request.body.to_static_markup || false;
   var pathToSource = request.body.path_to_source;
   var props = request.body.props || {};
@@ -91,12 +91,14 @@ app.post('/render', function service(request, response) {
 
   component.render(props, toStaticMarkup, function(output) {
     response.send(output);
+    next();
   });
 });
 
 function errorHandler(err, request, response, next) {
   console.log('[' + new Date().toISOString() + '] ' + err.stack);
   response.status(500).send(argv.debug ? err.stack : err.toString());
+  next();
 }
 app.use(errorHandler);
 
