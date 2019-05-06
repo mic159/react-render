@@ -1,6 +1,12 @@
 Changelog
 =========
 
+### 1.3.0
+
+Update React to version 16.8.6
+
+*Note:* JS only release. Python package remains at 1.0.0
+
 ### 1.2.1
 
 Allow chained express middleware.
