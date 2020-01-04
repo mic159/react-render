@@ -1,8 +1,9 @@
 import datetime
 import json
 import os
+import sys
 import unittest
-from django.utils import timezone, six
+from django.utils import timezone
 from react_render.django.render import render_component, RenderedComponent
 from react_render.exceptions import ComponentRenderingError, ComponentSourceFileNotFound
 
@@ -70,7 +71,7 @@ class TestDjangoReact(unittest.TestCase):
         self.assertIsInstance(component, RenderedComponent)
         self.assertEqual(component.output, '<span>Hello world!</span>')
         self.assertEqual(component.output, str(component))
-        if six.PY2:
+        if sys.version_info[0] < 3:
             self.assertEqual(component.output, unicode(component))
 
     def test_can_get_a_components_serialized_props(self):
