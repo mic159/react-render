@@ -1,2 +1,2 @@
 react-render-client==1.0.0
-django==1.11.23
+django==1.11.28
