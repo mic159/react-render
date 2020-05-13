@@ -1,6 +1,12 @@
 Changelog
 =========
 
+### 1.x.x (Unreleased)
+
+Python package bumped to 1.1.0:
+    - Attempt to resolve static content at STATIC_ROOT where content should have
+      been collected.
+
 ### 1.3.0
 
 Update React to version 16.8.6

@@ -10,12 +10,12 @@ from react_render.exceptions import ComponentRenderingError, ComponentSourceFile
 COMPONENT_ROOT = os.path.join(os.path.dirname(__file__), 'components')
 
 PATH_TO_HELLO_WORLD_COMPONENT_JS = os.path.join(COMPONENT_ROOT, 'HelloWorldPlain.js')
-PATH_TO_HELLO_WORLD_COMPONENT_JSX = os.path.join(COMPONENT_ROOT, 'HelloWorld.js')
-PATH_TO_HELLO_WORLD_WRAPPER_COMPONENT = os.path.join(COMPONENT_ROOT, 'HelloWorldWrapper.js')
-PATH_TO_ERROR_THROWING_COMPONENT = os.path.join(COMPONENT_ROOT, 'ErrorThrowingComponent.js')
-PATH_TO_SYNTAX_ERROR_COMPONENT = os.path.join(COMPONENT_ROOT, 'SyntaxErrorComponent.js')
-PATH_TO_ES6 = os.path.join(COMPONENT_ROOT, 'ES6Test.js')
-PATH_TO_STATIC_FILE_FINDER_COMPONENT = 'test_app/StaticFileFinderComponent.js'
+PATH_TO_HELLO_WORLD_COMPONENT_JSX = os.path.join(COMPONENT_ROOT, 'HelloWorld.jsx')
+PATH_TO_HELLO_WORLD_WRAPPER_COMPONENT = os.path.join(COMPONENT_ROOT, 'HelloWorldWrapper.jsx')
+PATH_TO_ERROR_THROWING_COMPONENT = os.path.join(COMPONENT_ROOT, 'ErrorThrowingComponent.jsx')
+PATH_TO_SYNTAX_ERROR_COMPONENT = os.path.join(COMPONENT_ROOT, 'SyntaxErrorComponent.jsx')
+PATH_TO_ES6 = os.path.join(COMPONENT_ROOT, 'ES6Test.jsx')
+PATH_TO_STATIC_FILE_FINDER_COMPONENT = 'test_app/StaticFileFinderComponent.jsx'
 
 
 class TestDjangoReact(unittest.TestCase):
@@ -59,7 +59,7 @@ class TestDjangoReact(unittest.TestCase):
         self.assertNotEqual(markup, '<span>Hello world!</span>')
         self.assertIn('Hello ', markup)
         self.assertIn('world!', markup)
-        
+
     def test_render_component_returns_a_rendered_component(self):
         component = render_component(
             PATH_TO_HELLO_WORLD_COMPONENT_JSX,
