@@ -59,7 +59,7 @@ class TestDjangoReact(unittest.TestCase):
         self.assertNotEqual(markup, '<span>Hello world!</span>')
         self.assertIn('Hello ', markup)
         self.assertIn('world!', markup)
-        
+
     def test_render_component_returns_a_rendered_component(self):
         component = render_component(
             PATH_TO_HELLO_WORLD_COMPONENT_JSX,

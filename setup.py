@@ -1,6 +1,6 @@
 from setuptools import setup, find_packages
 
-VERSION = '1.0.0'
+VERSION = '1.3.1'
 
 setup(
     name='react-render-client',
@@ -8,7 +8,7 @@ setup(
     packages=find_packages(exclude=['example', 'tests']),
     install_requires=[
         'django>=1.6',
-        'requests>=2',
+        'requests>=2,<3',
     ],
     description='Render and bundle React components from a Django application',
     long_description='Documentation at https://github.com/mic159/react-render',
@@ -24,5 +24,9 @@ setup(
         'License :: OSI Approved :: MIT License',
         'Operating System :: OS Independent',
         'Topic :: Software Development',
+        'Programming Language :: Python :: 3',
+        'Programming Language :: Python :: 3.6',
+        'Programming Language :: Python :: 3.7',
+        'Programming Language :: Python :: 3.8',
     ]
 )

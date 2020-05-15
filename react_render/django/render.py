@@ -47,8 +47,14 @@ def render_component(path_to_source, props=None, to_static_markup=False, json_en
             except ValueError:
                 # Couldn't find it.
                 pass
-        # Now resolve it to the absolute path using the finders
-        path_to_source = find_static(path_to_source) or path_to_source
+
+        # first, attempt to resolve at STATIC_ROOT if the file was collected
+        abs_path = os.path.join(settings.STATIC_ROOT or '', path_to_source)
+        if os.path.exists(abs_path):
+            path_to_source = abs_path
+        else:
+            # Otherwise, resolve it using finders
+            path_to_source = find_static(path_to_source) or path_to_source
 
     if json_encoder is None:
         json_encoder = DjangoJSONEncoder().encode
