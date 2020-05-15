@@ -49,7 +49,7 @@ def render_component(path_to_source, props=None, to_static_markup=False, json_en
                 pass
 
         # first, attempt to resolve at STATIC_ROOT if the file was collected
-        abs_path = os.path.join(settings.STATIC_ROOT, path_to_source)
+        abs_path = os.path.join(settings.STATIC_ROOT or '', path_to_source)
         if os.path.exists(abs_path):
             path_to_source = abs_path
         else:
