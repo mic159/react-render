@@ -6,6 +6,7 @@ Changelog
 Python package bumped to 1.3.1:
 - Attempt to resolve static content at STATIC_ROOT where content should have
   been collected.
+- No longer testing python 2 & Django 1.11
 
 Nodejs package 1.3.1:
 - Bump dependencies
