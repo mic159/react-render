@@ -5,6 +5,7 @@
 /dist/
 /*.egg-info/
 *.egg
+/venv/
 
 # Installer logs
 pip-log.txt
@@ -18,4 +19,4 @@ node_modules
 
 /*.py
 /setup.cfg
-
+/runtests.py
