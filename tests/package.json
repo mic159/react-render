@@ -1,7 +1,7 @@
 {
   "private": true,
   "scripts": {
-    "build": "webpack --mode production"
+    "build": "webpack --mode production || true"
   },
   "dependencies": {
     "@babel/core": "^7.10.5",
