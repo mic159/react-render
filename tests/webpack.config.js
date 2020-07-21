@@ -6,14 +6,11 @@ var context_test_app = path.join(__dirname, 'test_app', 'static', 'test_app');
 var moduleOpts = {
   // Inform webpack to use the babel loader when reading files
   // ending in '.jsx'
-  loaders: [
+  rules: [
     {
       test: /\.jsx$/,
       exclude: /node_modules/,
-      loader: 'babel-loader',
-      query: {
-        presets: ['es2015', 'react']
-      }
+      loader: 'babel-loader'
     }
   ]
 };
