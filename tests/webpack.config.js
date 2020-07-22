@@ -23,7 +23,6 @@ module.exports = [
       'HelloWorld': ['./HelloWorld.jsx'],
       'HelloWorldWrapper': ['./HelloWorldWrapper.jsx'],
       'PerfTestComponent': ['./PerfTestComponent.jsx'],
-      'SyntaxErrorComponent': ['./SyntaxErrorComponent.jsx'],
       'ES6Test': ['./ES6Test.jsx'],
     },
     output: {

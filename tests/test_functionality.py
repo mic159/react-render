@@ -13,7 +13,6 @@ PATH_TO_HELLO_WORLD_COMPONENT_JS = os.path.join(COMPONENT_ROOT, 'HelloWorldPlain
 PATH_TO_HELLO_WORLD_COMPONENT_JSX = os.path.join(COMPONENT_ROOT, 'HelloWorld.js')
 PATH_TO_HELLO_WORLD_WRAPPER_COMPONENT = os.path.join(COMPONENT_ROOT, 'HelloWorldWrapper.js')
 PATH_TO_ERROR_THROWING_COMPONENT = os.path.join(COMPONENT_ROOT, 'ErrorThrowingComponent.js')
-PATH_TO_SYNTAX_ERROR_COMPONENT = os.path.join(COMPONENT_ROOT, 'SyntaxErrorComponent.js')
 PATH_TO_ES6 = os.path.join(COMPONENT_ROOT, 'ES6Test.js')
 PATH_TO_STATIC_FILE_FINDER_COMPONENT = 'test_app/StaticFileFinderComponent.js'
 
@@ -110,10 +109,6 @@ class TestDjangoReact(unittest.TestCase):
     def test_component_js_rendering_errors_raise_an_exception(self):
         self.assertRaises(ComponentRenderingError, render_component, PATH_TO_ERROR_THROWING_COMPONENT)
         self.assertRaises(ComponentRenderingError, render_component, PATH_TO_ERROR_THROWING_COMPONENT, to_static_markup=True)
-
-    def test_components_with_syntax_errors_raise_exceptions(self):
-        self.assertRaises(ComponentRenderingError, render_component, PATH_TO_SYNTAX_ERROR_COMPONENT)
-        self.assertRaises(ComponentRenderingError, render_component, PATH_TO_SYNTAX_ERROR_COMPONENT, to_static_markup=True)
 
     def test_unserializable_props_raise_an_exception(self):
         self.assertRaises(
