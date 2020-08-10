@@ -6,7 +6,7 @@ Changelog
 Python package bumped to 1.3.2:
 - Add a configurable timeout using the setting `REACT_TIMEOUT`
 
-*Note:* JS only release. Python package remains at 1.3.1
+*Note:* Python only release. JavaScript package remains at 1.3.1
 
 ### 1.3.1
 
