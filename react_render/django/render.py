@@ -38,7 +38,7 @@ class RenderedComponent(object):
         return '{}'
 
 
-def render_component(path_to_source, props=None, to_static_markup=False, json_encoder=None):
+def render_component(path_to_source, props=None, to_static_markup=False, json_encoder=None, timeout=TIMEOUT):
     if not os.path.isabs(path_to_source):
         # If its using the manifest staticfiles storage, to the hashed name.
         # eg. js/hello.js -> js/hello.d0bf07ff5f07.js
@@ -67,7 +67,7 @@ def render_component(path_to_source, props=None, to_static_markup=False, json_en
             to_static_markup,
             json_encoder,
             service_url=SERVICE_URL,
-            timeout=TIMEOUT,
+            timeout=timeout,
         )
     except Exception:
         if not FAIL_SAFE:

@@ -76,6 +76,7 @@ Arguments:
   `renderToString` method to be used.
 - `json_encoder` *optional* — a class which is used to encode the JSON which is sent to the 
   renderer. Defaults to `django.core.serializers.json.DjangoJSONEncoder`.
+- `timeout` *optional* - override the service timeout.
 
 
 RenderedComponent
