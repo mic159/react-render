@@ -6,7 +6,7 @@ from react_render.exceptions import ComponentSourceFileNotFound, ComponentRender
 DEFAULT_SERVICE_URL = 'http://localhost:63578/render'
 
 
-def render_component(path_to_source, props=None, to_static_markup=False, json_encoder=None, service_url=None):
+def render_component(path_to_source, props=None, to_static_markup=False, json_encoder=None, service_url=None, timeout=10):
     if not os.path.exists(path_to_source):
         raise ComponentSourceFileNotFound(path_to_source)
 
@@ -17,7 +17,7 @@ def render_component(path_to_source, props=None, to_static_markup=False, json_en
         service_url = DEFAULT_SERVICE_URL
 
     response = requests.post(service_url,
-        timeout=10.0,
+        timeout=timeout,
         headers={'Content-Type': 'application/json'},
         data=json_encoder({
             'props': props,

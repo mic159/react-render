@@ -76,6 +76,7 @@ Arguments:
   `renderToString` method to be used.
 - `json_encoder` *optional* — a class which is used to encode the JSON which is sent to the 
   renderer. Defaults to `django.core.serializers.json.DjangoJSONEncoder`.
+- `timeout` *optional* - override the service timeout.
 
 
 RenderedComponent
@@ -114,6 +115,20 @@ react-service settings
 - `--whitelist` Restrict the directory that the service can access.
   By default, the service will attempt to load any arbitrary path it is given.
   Can also be set via the `REACT_WHITELIST` environment variable.
+
+Django settings
+----------------
+
+- `REACT_SERVICE_URL`
+   - Customer URL for the render service (eg. for changing port)
+   - Default: `http://localhost:63578/render`
+- `REACT_FAIL_SAFE`
+   - If there is a problem with the service, do not raise an exception, and return empty HTML
+     (allowing the client-side JS to take over)
+   - Default: `False`
+- `REACT_TIMEOUT`
+   - How long (in seconds) should it wait for nodejs to render the component
+   - Default: `10`
 
 
 Running the tests
