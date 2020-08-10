@@ -13,6 +13,7 @@ from react_render.core import DEFAULT_SERVICE_URL
 
 SERVICE_URL = getattr(settings, 'REACT_SERVICE_URL', DEFAULT_SERVICE_URL)
 FAIL_SAFE = getattr(settings, 'REACT_FAIL_SAFE', False)
+TIMEOUT = getattr(settings, 'REACT_TIMEOUT', 10)
 
 log = logging.getLogger('react-render-client')
 
@@ -60,8 +61,15 @@ def render_component(path_to_source, props=None, to_static_markup=False, json_en
         json_encoder = DjangoJSONEncoder().encode
 
     try:
-        html = render_core(path_to_source, props, to_static_markup, json_encoder, service_url=SERVICE_URL)
-    except:
+        html = render_core(
+            path_to_source,
+            props,
+            to_static_markup,
+            json_encoder,
+            service_url=SERVICE_URL,
+            timeout=TIMEOUT,
+        )
+    except Exception:
         if not FAIL_SAFE:
             raise
         log.exception('Error while rendering %s', path_to_source)
