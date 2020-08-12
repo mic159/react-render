@@ -10,15 +10,15 @@ DEFAULT_SERVICE_URL = 'http://localhost:63578/render'
 _requests_session_store = threading.local()
 
 
-def requests_keepalive_session(name) -> requests.Session:
+def requests_keepalive_session() -> requests.Session:
     """
     Creates a session that can utilize keep-alive behaviour across multiple
     requests, by maintaining the session within a thread-local.
     """
-    session = getattr(_requests_session_store, name, None)
+    session = getattr(_requests_session_store, "react_session", None)
     if not session:
         session = requests.Session()
-        setattr(_requests_session_store, name, session)
+        setattr(_requests_session_store, "react_session", session)
     return session
 
 
