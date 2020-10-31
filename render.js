@@ -103,7 +103,7 @@ function errorHandler(err, request, response, next) {
 router.use(errorHandler);
 
 function startServer(app) {
-  app.listen(argv.port || 63578, argv.host || 'localhost', function() {
+  var server = app.listen(argv.port || 63578, argv.host || 'localhost', function() {
     console.log('Started server at http://%s:%s', server.address().address, server.address().port);
 });
 }
