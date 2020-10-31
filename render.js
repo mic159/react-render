@@ -21,9 +21,9 @@ var argv = require('yargs')
 
 morgan.token('file', function(req, res){ return path.basename(req.body.path_to_source); });
 
-var app = express();
-app.use(bodyParser.json({limit: '50mb'}));
-app.use(morgan('[:date[iso]] :method :url :status :response-time ms - :file :res[content-length]'));
+var router = express.Router();
+router.use(bodyParser.json({limit: '50mb'}));
+router.use(morgan('[:date[iso]] :method :url :status :response-time ms - :file :res[content-length]'));
 
 // Component cache living in global scope
 var cache = {};
@@ -68,7 +68,7 @@ Component.prototype.render = function render(props, toStaticMarkup, callback) {
   }
 };
 
-app.post('/render', function service(request, response, next) {
+router.post('/render', function service(request, response, next) {
   var toStaticMarkup = request.body.to_static_markup || false;
   var pathToSource = request.body.path_to_source;
   var props = request.body.props || {};
@@ -100,10 +100,12 @@ function errorHandler(err, request, response, next) {
   response.status(500).send(argv.debug ? err.stack : err.toString());
   next();
 }
-app.use(errorHandler);
+router.use(errorHandler);
 
-var server = app.listen(argv.port || 63578, argv.host || 'localhost', function() {
-  console.log('Started server at http://%s:%s', server.address().address, server.address().port);
+function startServer(app) {
+  app.listen(argv.port || 63578, argv.host || 'localhost', function() {
+    console.log('Started server at http://%s:%s', server.address().address, server.address().port);
 });
+}
 
-module.exports = app;
+module.exports = {router, startServer};
