@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import marked from 'marked';
+import { marked } from 'marked';
 
 
 export default class Comment extends Component {
